@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
         remoteConfig.fetchAndActivate()
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    binding.tvMain.text = remoteConfig[STRING_REMOTE_KEY].asString()
+                    binding.tvMain.text = remoteConfig.getString(STRING_REMOTE_KEY)
                 } else {
                     Toast.makeText(this, "Fetch failed",
                         Toast.LENGTH_SHORT).show()

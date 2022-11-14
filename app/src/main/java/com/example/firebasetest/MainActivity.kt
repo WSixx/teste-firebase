@@ -3,6 +3,7 @@ package com.example.firebasetest
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
+import androidx.core.view.isVisible
 import com.example.firebasetest.databinding.ActivityMainBinding
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig
@@ -24,7 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         _binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         val remoteConfig: FirebaseRemoteConfig = Firebase.remoteConfig
         val configSettings = remoteConfigSettings { MINIMUM_FETCH_INTERVAL }
         remoteConfig.setConfigSettingsAsync(configSettings)
@@ -37,6 +37,7 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "Fetch failed",
                         Toast.LENGTH_SHORT).show()
                 }
+                binding.spMain.isVisible = false
             }
     }
 

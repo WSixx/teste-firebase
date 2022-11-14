@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Firebase Test</string>
+    <string name="welcome_str">Bem Vindo</string>
 </resources>
